@@ -2,6 +2,7 @@ import requests
 from discord.ext.commands import Bot, Context, CommandError, guild_only, CommandNotFound
 import discord.utils
 import discord
+from data import token
 
 bot = Bot(command_prefix="|", case_insensitive=True)
 
@@ -26,7 +27,11 @@ async def get(ctx):
     newdeaths = data["Countries"][63]["NewDeaths"]
     totaldeaths = data["Countries"][63]["TotalDeaths"]
 
-    embed = discord.Embed()
+    embed = discord.Embed(title="Corona-Statistiken",
+                          description="Aktuelle Statistiken zur Corona-Krise",
+                          color="#0404B4",
+                          url="https://github.com/LoCrealloc/covidbot",
+                          )
+    embed.set_thumbnail()
 
-
-bot.run("")
+bot.run(token)
