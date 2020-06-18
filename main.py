@@ -30,4 +30,4 @@ async def get(ctx):
 
 
 
-bot.run("NzIzMTU1NTUxMDAwNzIzNTY5.XuthnQ.0quqAfT0qKzjpjSeji7Rgb6MfPY")
+bot.run("")
