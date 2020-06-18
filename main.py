@@ -29,5 +29,4 @@ async def get(ctx):
     embed = discord.Embed()
 
 
-
 bot.run("")
