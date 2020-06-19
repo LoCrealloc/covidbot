@@ -3,7 +3,7 @@ from discord.ext.commands import Bot
 import discord.utils
 import discord
 import data
-from token import token
+from token import tokenid
 
 bot = Bot(command_prefix="|", case_insensitive=True)
 
