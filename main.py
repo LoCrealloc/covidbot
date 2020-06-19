@@ -59,4 +59,4 @@ async def get(ctx: discord.Message):
     await ctx.channel.send(embed=embed)
 
 
-bot.run(token)
+bot.run(tokenid)
