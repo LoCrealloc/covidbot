@@ -3,7 +3,7 @@ from discord.ext.commands import Bot
 import discord.utils
 import discord
 import data
-from token import tokenid
+from tokenid import tokenid
 
 bot = Bot(command_prefix="|", case_insensitive=True)
 
@@ -11,12 +11,30 @@ bot = Bot(command_prefix="|", case_insensitive=True)
 @bot.event
 async def on_ready():
     print("Bot is online")
-    status = discord.Game("https://github.com/LoCrealloc/covidbot")
+    status = discord.Activity(name="Developed by LoC!")
     await bot.change_presence(status=discord.Status.online, activity=status)
 
 
-@bot.command(name="get")
-async def get(ctx: discord.Message):
+@bot.command(name="info", aliases=["infos", "about"])
+async def info(ctx: discord.Message):
+    embed = discord.Embed(title="Corona-Statistiken-Bot",
+                          description="Dieser Bot sendet aktuelle Coronastatistiken direkt auf deinen Server",
+                          color=0x088A08,
+                          url="https://github.com/LoCrealloc/covidbot")
+
+    embed.set_thumbnail(url=data.thumb_url)
+
+    embed.add_field(name="Features", value="\n".join(data.features), inline=False)
+
+    embed.add_field(name="GitHub", value="https://github.com/LoCrealloc/covidbot", inline=False)
+
+    embed.add_field(name="Entwickler", value="Dieser Bot wird von LoC entwickelt, bitte teile mir Fehler "
+                                             "oder Verbesserungsvorschläge über die Issue-Seite auf dem "
+                                             "GitHub-Repository des Bots mit!")
+
+
+@bot.command(name="stats")
+async def stats(ctx: discord.Message):
     resp = requests.get("https://api.covid19api.com/summary", params=dict())
 
     daten = resp.json()

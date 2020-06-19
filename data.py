@@ -2,3 +2,4 @@ thumb_url = "https://cdn.discordapp.com/avatars/723155551000723569/e67c05562c656
 
 version = "0.0.2"
 
+features = ["Zeige Statistiken an"]
