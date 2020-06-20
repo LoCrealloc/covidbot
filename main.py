@@ -32,6 +32,8 @@ async def info(ctx: discord.Message):
                                              "oder Verbesserungsvorschläge über die Issue-Seite auf dem "
                                              "GitHub-Repository des Bots mit!")
 
+    ctx.channel.send(embed=embed)
+
 
 @bot.command(name="stats")
 async def stats(ctx: discord.Message):
