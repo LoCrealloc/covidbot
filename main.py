@@ -11,7 +11,7 @@ bot = Bot(command_prefix="|", case_insensitive=True)
 @bot.event
 async def on_ready():
     print("Bot is online")
-    status = discord.Game(name="Developed by LoC!")
+    status = discord.Game(name="mit Corona-Stats")
     await bot.change_presence(status=discord.Status.online, activity=status)
 
 
@@ -26,9 +26,9 @@ async def info(ctx: discord.Message):
 
     embed.add_field(name="Features", value="\n".join(data.features), inline=False)
 
-    embed.add_field(name="GitHub", value="https://github.com/LoCrealloc/covidbot", inline=False)
+    embed.add_field(name="Version", value=data.version, inline=True)
 
-    embed.add_field(name="Version", value=data.version, inline=False)
+    embed.add_field(name="GitHub", value="https://github.com/LoCrealloc/covidbot", inline=True)
 
     embed.add_field(name="Entwickler", value="Dieser Bot wird von LoC entwickelt, bitte teile mir Fehler "
                                              "oder Verbesserungsvorschläge über die Issue-Seite auf dem "
