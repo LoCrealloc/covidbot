@@ -11,7 +11,7 @@ bot = Bot(command_prefix="|", case_insensitive=True)
 @bot.event
 async def on_ready():
     print("Bot is online")
-    status = discord.Activity(name="Developed by LoC!")
+    status = discord.Game(name="Developed by LoC!")
     await bot.change_presence(status=discord.Status.online, activity=status)
 
 
