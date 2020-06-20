@@ -15,6 +15,23 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=status)
 
 
+@bot.command(name="help", aliases=["h", "hilfe"])
+async def help(ctx: discord.Message):
+    embed = discord.Embed(title="Corona-Statistiken-Bot",
+                          description="Befehlsübersicht",
+                          color=0x088A08,
+                          url="https://github.com/LoCrealloc/covidbot")
+
+    embed.set_thumbnail(url=data.thumb_url)
+
+    embed.add_field(name="Prefix", value="Das Prefix ist " + bot.command_prefix, inline=False)
+
+    embed.add_field(name="Übersicht", value="|info", inline=False)
+    embed.add_field(name="Statistiken", value="|stats", inline=False)
+
+    await ctx.channel.send(embed=embed)
+
+
 @bot.command(name="info", aliases=["infos", "about"])
 async def info(ctx: discord.Message):
     embed = discord.Embed(title="Corona-Statistiken-Bot",
