@@ -28,9 +28,11 @@ async def info(ctx: discord.Message):
 
     embed.add_field(name="GitHub", value="https://github.com/LoCrealloc/covidbot", inline=False)
 
+    embed.add_field(name="Version", value=data.version, inline=False)
+
     embed.add_field(name="Entwickler", value="Dieser Bot wird von LoC entwickelt, bitte teile mir Fehler "
                                              "oder Verbesserungsvorschläge über die Issue-Seite auf dem "
-                                             "GitHub-Repository des Bots mit!")
+                                             "GitHub-Repository des Bots mit!", inline=False)
 
     await ctx.channel.send(embed=embed)
 
