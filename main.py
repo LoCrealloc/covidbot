@@ -1,9 +1,11 @@
 import requests
+import datetime
 from discord.ext.commands import Bot
 import discord.utils
 import discord
 import data
 from tokenid import tokenid
+
 
 bot = Bot(command_prefix="|", case_insensitive=True)
 
@@ -13,9 +15,6 @@ async def on_ready():
     print("Bot is online")
     status = discord.Game(name="mit Corona-Stats")
     await bot.change_presence(status=discord.Status.online, activity=status)
-
-
-
 
 
 @bot.command(name="info", aliases=["infos", "about"])
@@ -50,6 +49,8 @@ async def stats(ctx: discord.Message):
     Tells you some current Corona stats
     """
 
+    date = datetime.datetime.now().strftime("%d.%m.%Y")
+
     resp = requests.get("https://api.covid19api.com/summary", params=dict())
 
     daten = resp.json()
@@ -68,7 +69,7 @@ async def stats(ctx: discord.Message):
     detotaldeaths = daten["Countries"][63]["TotalDeaths"]
 
     embed = discord.Embed(title="Corona-Statistiken",
-                          description="Aktuelle Statistiken zur Corona-Krise",
+                          description="Aktuelle Statistiken zur Corona-Krise vom " + date,
                           color=0x088A08,
                           url="https://covid19api.com",
                           )
